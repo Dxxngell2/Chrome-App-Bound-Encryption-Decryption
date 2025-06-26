@@ -39,14 +39,17 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        architecture: [x64, arm64]
+        architecture: [x64, arm64, x86]
         include:
           - architecture: x64
             platform_toolset_arg: x64
             final_injector_name: chrome_inject_x64.exe
           - architecture: arm64
-            platform_toolset_arg: x64_arm64 
+            platform_toolset_arg: x64_arm64
             final_injector_name: chrome_inject_arm64.exe
+          - architecture: x86
+            platform_toolset_arg: x86
+            final_injector_name: chrome_inject_x86.exe
 
     steps:
       - name: Checkout repository
