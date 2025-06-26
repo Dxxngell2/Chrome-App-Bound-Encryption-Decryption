@@ -1,0 +1,11 @@
+image: Visual Studio 2022
+
+build_script:
+  - cmake -B build -G "Visual Studio 17 2022" -A Win32 .
+  - cmake --build build --config Release
+
+artifacts:
+  - path: build/bin/*.exe
+    name: executables
+  - path: build/bin/*.dll
+    name: dlls
